@@ -1,0 +1,15 @@
+<!-- NGIF -->
+<p *ngIf="true">hiiiiiiiii</p>
+<p *ngIf="false">hiiiiiiiii</p>
+
+
+<!-- ngFor -->
+<p *ngFor="let i of alldata ">{{i}}</p>
+
+<!-- ng switch -->
+<div [ngSwitch]="state">
+    <div *ngSwitchCase="'mu'">MUmbai</div>
+    <div *ngSwitchCase="'KA'">karnatk</div>
+    <div *ngSwitchCase="'gu'">Gujrat</div>
+
+</div>

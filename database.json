@@ -1,0 +1,34 @@
+{
+  "student": [
+    {
+      "id": 2,
+      "fname": "Akshay",
+      "lname": "jagtap",
+      "email": "jagtapshekhar7979@gmail.com",
+      "course": "MCA",
+      "gender": "male",
+      "pass": "Pass@123",
+      "cpass": "Pass@123"
+    },
+    {
+      "id": 3,
+      "fname": "shekhar",
+      "lname": "jagtap",
+      "email": "shekharjagtap7979@gmail.com",
+      "course": "MBA",
+      "gender": "male",
+      "pass": "1234",
+      "cpass": "1234"
+    },
+    {
+      "fname": "shekhar",
+      "lname": "jagtap",
+      "email": "jagtapshekhar7979@gmail.com",
+      "course": "BCA",
+      "gender": "male",
+      "pass": "htdhtd",
+      "cpass": "hgthgth",
+      "id": 4
+    }
+  ]
+}

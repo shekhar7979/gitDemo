@@ -1,0 +1,61 @@
+
+<form #frm="ngForm" (ngSubmit)="saveData(frm)">
+    <div class="form-group">
+<input type="hidden"name="id" #id="ngModel" ngModel  [(ngModel)]="iddd">
+    </div>
+    <div class="form-group">
+        <label class="label" for="Name"> Name</label>
+        <input type="text" name="name" class="form-control" ngModel #name="ngModel" 
+         required [ngClass]="{'is-invalid':frm.submitted && name.invalid}" placeholder="enter firstname"
+         [(ngModel)]="fn">
+         <span *ngIf="frm.submitted&&name.invalid " style="color: red;">please Enter first Name</span>
+    </div>
+
+    <div class="form-group">
+        <label class="label" for="lastName"> lastName</label>
+        <input type="text" name="lastName" class="form-control" ngModel
+        required [ngClass]="{'is-invalid':frm.submitted && lastname.invalid }"
+        #lastname="ngModel" placeholder="Enter lastname" [(ngModel)]="ln">
+        <span *ngIf="frm.submitted&& lastname.invalid" style="color: red;"> please enter last Name</span>
+    </div>
+
+    <div class="form-group">
+        <label class="label" for="email"> Email</label>
+        <input type="email" name="email" class="form-control" ngModel #email="ngModel"
+        required [ngClass]="{'is-invalid':frm.submitted&&email.invalid}" placeholder="Example:abc@gmail.com" email
+        [(ngModel)]="em">
+        <span *ngIf=" frm.submitted && email.invalid">please enter email Address</span>
+    </div>
+
+    <div class="form-group">
+        <input type="radio" name="Gender" id="" value="male" ngModel [(ngModel)]="gen">Male
+        <input type="radio" name="Gender" id="" value="female" ngModel [(ngModel)]="gen">FeMale
+    </div>
+ 
+    <button>submit</button>
+    <button (click)="onUpdate(frm)" type="submit">Update</button>
+</form>
+
+
+
+
+<table class="table">
+    <tr>
+        <th>name</th>
+        <th>lastname</th>
+        <th>email</th>
+        <th>Gender</th>
+        <th>Action</th>
+        <th>Action</th>
+
+    </tr>
+    <tr *ngFor="let i of alldata">
+        <td>{{i.name}}</td>
+        <td>{{i.lastName}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.Gender}}</td>
+        <td><button (click)="onDel(i)"><span class="pi pi-trash" ></span></button></td>
+        <td><button (click)="onup(i)"><span class="pi pi-file-edit"></span></button></td>
+
+    </tr>
+</table>

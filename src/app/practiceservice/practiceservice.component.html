@@ -1,0 +1,22 @@
+
+
+<form #form="ngForm" (ngSubmit)="setData(form.value)">
+    <div class="form-group">
+        <label for="name"> name</label>
+        <input type="text" class="form-control" name="name" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="username">  username</label>
+        <input type="text" class="form-control" name="username" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="email"> email</label>
+        <input type="email" class="form-control" name="email" ngModel>
+    </div>
+    <div>
+        <button class="btn btn-info">submit</button>
+    </div>
+    </form>
+
+
+{{alldata|json}}

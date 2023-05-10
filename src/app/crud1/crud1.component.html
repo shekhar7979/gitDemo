@@ -1,0 +1,90 @@
+<div class="container">
+    <form   #form_login="ngForm" (ngSubmit)="form_login.form.valid && onSubmitData(form_login)" class="shadow mb-3">
+        <div class="form-group ">
+            <div class="form-group">
+                <input type="hidden" name="id" class="form-control" #id="ngModel" ngModel
+                 [(ngModel)]="idd" >
+            </div>
+            <label for="name" class="form-label">Name</label><span style="color: red">*</span>
+            <input type="text" name="fname" id="" class=" form-control" #fname="ngModel" ngModel
+            required [ngClass]="{'is-invalid':form_login.submitted && fname.invalid}" placeholder="Plese Enter The FirstName" [(ngModel)]="fn">
+            <div *ngIf="form_login.submitted && fname.invalid" style="color: red;" class="invalid-feedback">Enter valid Name</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="lname" class="form-label">Lname</label><span style="color: red">*</span>
+            <input type="text" name="lname" id="" class=" form-control" #lname="ngModel" ngModel
+            required [ngClass]="{'is-invalid':form_login.submitted && lname.invalid}" placeholder="Plese Enter The LastName" [(ngModel)]="ln">
+            <div *ngIf="form_login.submitted && lname.invalid" style="color: red;">Enter valid lastName</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="Email" class="form-label">Email</label><span style="color: red">*</span>
+            <input type="email" name="email" id="" class=" form-control" #email="ngModel" ngModel
+            email required [ngClass]="{'is-invalid':form_login.submitted && email.invalid}" placeholder="name@example.com" [(ngModel)]="em">
+            <div *ngIf="form_login.submitted && email.invalid" style="color: red;">Enter valid Email</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="course" class="form-label">course</label>
+            <select class="form-control " name="course" #course="ngModel"  ngModel [(ngModel)]="cor">
+                <option  selected disabled>Select course</option>
+                <option *ngFor="let course of courses">{{course}}</option>
+            </select>
+        </div>
+    
+        <div class="form-group ">
+            <label for="gender" class="form-label">Gender:</label>
+            <input type="radio" name="gender" class=" radio" value="male"  #gender="ngModel"  ngModel required [ngClass]="{'is-invalid':form_login.submitted && gender.invalid}"  [(ngModel)]="gen">
+            <label for="male" class="form-label">Male</label>
+            <input type="radio" name="gender" class=" radio" value="female"  #gender="ngModel" ngModel required [ngClass]="{'is-invalid':form_login.submitted && gender.invalid}" [(ngModel)]="gen">
+            <label for="female">Female</label>
+            <div *ngIf="form_login.submitted && gender.invalid" style="color: red;">Please Select Gender</div>
+        </div>
+    
+        <div class="form-group">
+            <label for="Pass" class="form-label">Password</label>
+            <input type="password" name="pass" id="" class=" form-control"  #Pass="ngModel" ngModel  [(ngModel)]="ps">
+        </div>
+    
+        <div class="form-group">
+            <label for="Cpass" class="form-label">Confirm Password</label>
+            <input type="password" name="cpass" id="" class=" form-control"  #Cpass="ngModel"   ngModel  [(ngModel)]="cps">
+            <br><br>
+        </div>
+        <div class="form-group text-center ">
+            <button type="submit" class="btn btn-info  " id="btn">Submit</button>
+            <button type="reset" class="btn btn-primary " id="btn">Reset</button>
+            <button type="submit" class="btn btn-success " id="btn "  (click)="onclickUpdate(form_login)" >Update</button>
+        </div>
+        
+    </form>
+
+    <table class="table table-primary align">
+        <tr style="background-color: aqua;">
+            <!-- <th></th> -->
+            <th>fname</th>
+            <th>lname</th>
+            <th>email</th>
+            <th>course</th>
+            <th>gendar</th>
+            <th>password</th>
+            <th>confirm_pass</th>
+            <th>Action</th>
+            <th>Action</th>
+    
+    
+        </tr>
+        <tr *ngFor="let dt of allData">
+            <!-- <td>{{dt.gender |cPipe}}</td> -->
+            <td > {{dt.fname}}</td>
+            <td > {{dt.lname}}</td>
+            <td > {{dt.email}}</td>
+            <td > {{dt.course}}</td>
+            <td > {{dt.gender }}</td>
+            <td > {{dt.pass}}</td>
+            <td > {{dt.cpass}}</td>
+            <td><button (click)="delete1(dt)" class="btn btn-danger">Delete </button></td>
+            <td><button (click)="onupdate(dt)" class="btn btn-warning">Update</button></td>
+        </tr>
+    </table>
